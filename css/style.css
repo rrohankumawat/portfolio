@@ -216,3 +216,8 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+.portfolio_text {
+  font-size: 20px;
+  font-weight: 700;
+}
