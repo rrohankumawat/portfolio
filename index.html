@@ -31,7 +31,6 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-        <script src="store/store.js"></script>
 </head>
 
 <body>
@@ -155,9 +154,7 @@
 
                         <!-- skills right pane -->
                         <div class="col-sm-6 skills_rightrow">
-                            <div class="skill mb-4" style="display: none;">
-                                
-                            </div>
+                            
                         </div>
                     </div>
                 </section>
@@ -472,12 +469,13 @@
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    
+    <script src="js/main.js" defer></script>
+    <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
 </body>
 
