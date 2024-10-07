@@ -190,7 +190,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
     align-items: center;
     justify-content: center;
     position:relative;
-    background:url(../images/about/_533af7ee-0d58-49ab-89f6-18f7039a806e.jpg)no-repeat;
+    background:url(../images/about/bannerimage.jpg) no-repeat;
     background-size:cover;
     background-position: center;
     height:890px;
@@ -269,7 +269,9 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
 }
 .single-about-add-info p {font-weight:  300;border:  0;padding: 0;margin-top: 3px;}
 /*.single-about-txt*/
-
+.single-about-add-info a:hover{
+    color: #d92cf9;
+}
 /*.single-about-img */
 .single-about-img{position: relative;box-shadow: 0 5px 20px rgba(14,25,80,.30);}
 .single-about-img:before {
