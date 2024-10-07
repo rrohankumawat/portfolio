@@ -194,6 +194,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
     background-size:cover;
     background-position: center;
     height:890px;
+    margin:0;
 }
 .welcome-hero:before{
     position:absolute;
@@ -779,6 +780,10 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 }
 .single-contact-add-info {
     margin-bottom:  26px;
+}
+
+.single-contact-add-info p a:hover{
+    color:#d92cf9;
 }
 /*.contact-add-info */
 
