@@ -11,3 +11,9 @@ export const RightPaneSkill =[
     {skillName : 'Microservices', skillVal : '85', color:'info'},
     
 ]
+
+export const GitHubRepo = [
+    {projectName : ['CoffeeBarista Desktop Application','CoffeeBarista API Project'], projectUrl : ['https://github.com/rohanpin1/CoffeeApp_Desktop','https://github.com/rohanpin1/CafeApp_api'], techName : '.NET Winforms', githubProfileName : 'rohanpin1'},
+    {projectName : ['Shipping Logistics'], projectUrl : ['https://github.com/rohanpin1/Logistics-Project'], techName : 'Umbraco', githubProfileName : 'rohanpin1'},
+    {projectName : ['Admin Panel Website'], projectUrl : ['https://github.com/rohanpin1/AdminPanelWebsite'], techName : 'ASP.NET Core & Web API', githubProfileName : 'rohanpin1'},
+]
