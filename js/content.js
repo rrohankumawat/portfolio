@@ -24,8 +24,25 @@ document.addEventListener('DOMContentLoaded', function() {
     var githubContent = document.querySelector('.github_carousel')
 
     for(let x of GitHubRepo){
-        console.log(x)
-        x.innerHTML += `<div class=text-left><i class="mb-4 fa fa-3x fa-quote-left text-primary"></i><p class="mb-4 fs-4"><a href=https://github.com/rohanpin1/CoffeeApp_Desktop target=_blank>CoffeeBarista Desktop Application</a><br><a href=https://github.com/rohanpin1/CafeApp_api target=_blank>CoffeeBarista API Project</a><div class="align-items-center d-flex"><img class=img-fluid src=img/microsoft.png style=width:60px;height:60px><div class=ps-3><p class="text-primary fs-5 mb-1">.NET Winforms</p><i>rohanpin1</i></div></div></div>`
+
+        var projectLinksAndName =''
+        if(x.projectName.length > 1) {
+            for(var i=0;i<x.projectName.length;i++){                
+                    projectLinksAndName = `<a href=${x.projectUrl[i]} target=_blank>${x.projectName[i]}</a><br>` + projectLinksAndName
+            }            
+        }else{
+            projectLinksAndName = `<a href=${x.projectUrl} target=_blank>${x.projectName}</a><br>`
+        }
+
+        githubContent.innerHTML += `<div class=text-left><i class="mb-4 fa fa-3x fa-quote-left text-primary"></i><p class="mb-4 fs-4">${projectLinksAndName}</p><div class="align-items-center d-flex"><img class=img-fluid src=img/${x.img} style=width:60px;height:60px><div class=ps-3><p class="text-primary fs-5 mb-1">${x.techName}</p><i>${x.githubProfileName}</i></div></div></div>`
     }
+
+    $(githubContent).owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        dots: true,
+        loop: true,
+        items: 1
+    });
 });
 
