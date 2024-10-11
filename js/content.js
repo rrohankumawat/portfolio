@@ -1,6 +1,8 @@
 import { LeftPaneSkills } from "../store/store.js";
 import { RightPaneSkill } from "../store/store.js";
 import { GitHubRepo } from "../store/store.js";
+import { Services } from "../store/store.js";
+
 document.addEventListener('DOMContentLoaded', function() {
     var row = document.querySelector('.skills_leftrow')
 
@@ -44,5 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
         loop: true,
         items: 1
     });
+
+
+    var servicesBlock = document.querySelector('.services_section')
+
+    for(let x of Services){
+        servicesBlock.innerHTML += `<div class=col-md-6><div class=service-item><i class="${x.isFaIconSupport == true ? 'fa' : x.iconModule} fa-2x ${x.icon} mb-4 mx-auto"></i><h5 class=mb-2>${x.serviceText}</h5></div></div>`
+
+        
+    }
 });
 

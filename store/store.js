@@ -18,3 +18,12 @@ export const GitHubRepo = [
     {projectName : ['Admin Panel Website'], projectUrl : ['https://github.com/rohanpin1/AdminPanelWebsite'], techName : 'ASP.NET Core & Web API', githubProfileName : 'rohanpin1',img:'microsoft.png'},
 ]
 
+
+export const Services = [
+    {icon : 'fa-laptop-code', serviceText : 'Website Development',isFaIconSupport :true, iconModule : ''},
+    {icon : 'fa-windows', serviceText : 'Windows App Development', isFaIconSupport :false,iconModule : 'fab'},
+    {icon : 'fa-cloud', serviceText : 'API & Cloud',isFaIconSupport :true,iconModule : ''},
+    {icon : 'fa-database', serviceText : 'Backend',isFaIconSupport :true,iconModule : ''},
+    {icon : 'fa-code', serviceText : 'HTML/CSS/Javascript',isFaIconSupport :true,iconModule : ''},
+    {icon : 'fa-edit', serviceText : 'Technical Content Writing',isFaIconSupport :true,iconModule : ''},
+]
