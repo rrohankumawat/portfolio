@@ -16,15 +16,30 @@ const blogs = [
     },
     {
         title: "OutOfMemoryException",
-        description: "Get started with OutOfMemoryException in ASP.NET Core and how to detect it?",
+        description: "Get started with OutOfMemoryException in ASP.NET Core and how to detect it? 😱 😭 😰 ",
         link: "https://www.linkedin.com/feed/update/urn:li:activity:7284443390614609920/"
     }
+    ,
+    {
+        title: "StackOverflowException ",
+        description: "Get started with StackOverflowException in ASP.NET Core and how to detect it? 😱 😭 😰 ",
+        link: "https://www.linkedin.com/feed/update/urn:li:activity:7283730346968334336/"
+    }
 ];
+// Pagination settings
+const blogsPerPage = 4; // Number of blogs to display per page
+let currentPage = 1; // Current page
 
-document.addEventListener('DOMContentLoaded', function () {
-    const blogsContainer = document.querySelector('.blog_row .col-12 .row');
+// Function to display blogs for a specific page
+function displayBlogs(page) {
+    const blogsContainer = document.getElementById('blogs-container');
+    blogsContainer.innerHTML = ''; // Clear existing blogs
 
-    blogs.forEach(blog => {
+    const startIndex = (page - 1) * blogsPerPage;
+    const endIndex = startIndex + blogsPerPage;
+    const blogsToShow = blogs.slice(startIndex, endIndex);
+
+    blogsToShow.forEach(blog => {
         blogsContainer.innerHTML += `
             <div class="col-md-6 mb-4">
                 <div class="card bg-secondary h-100">
@@ -37,4 +52,51 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
     });
+}
+
+// Function to update pagination buttons
+function updatePagination() {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = ''; // Clear existing pagination buttons
+
+    const totalPages = Math.ceil(blogs.length / blogsPerPage);
+
+    // Previous Button
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage - 1}, event)">Previous</a>
+        </li>
+    `;
+
+    // Page Numbers
+    for (let i = 1; i <= totalPages; i++) {
+        pagination.innerHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="changePage(${i}, event)">${i}</a>
+            </li>
+        `;
+    }
+
+    // Next Button
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage + 1}, event)">Next</a>
+        </li>
+    `;
+}
+
+// Function to change the current page
+function changePage(page, event) {
+    if (event) event.preventDefault(); // Prevent default behavior
+    if (page < 1 || page > Math.ceil(blogs.length / blogsPerPage)) return;
+    currentPage = page;
+    displayBlogs(currentPage);
+    updatePagination();
+}
+
+// Initialize the blogs and pagination on page load
+document.addEventListener('DOMContentLoaded', function () {
+    displayBlogs(currentPage);
+    updatePagination();
 });
+
