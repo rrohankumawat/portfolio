@@ -2,7 +2,7 @@ export const LeftPaneSkills = [
     {skillName : 'ASP.NET Core', skillVal : '95', color:'primary'},
     {skillName : 'ASP.NET MVC', skillVal : '85', color:'warning'},
     {skillName : 'Web APIs', skillVal : '90', color:'danger'},
-    
+    {skillName : 'IIS Server', skillVal : '85', color:'primary'},
 ]
 
 export const RightPaneSkill =[
