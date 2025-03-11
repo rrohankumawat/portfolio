@@ -1,0 +1,86 @@
+/* Refined Neon Color Palette */
+:root {
+    --neon-blue: #00e1ff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --neon-purple: #8a2be2;
+    --neon-yellow: #ffff00;
+    --neon-orange: #ff4500;
+    --neon-white: #ffffff;
+    --neon-black: #1a1a1a; /* Slightly lighter black for better contrast */
+}
+
+/* Global Styles (No Neon) */
+body {
+    color: var(--neon-white);
+    font-family: 'Heebo', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--neon-white);
+    font-weight: 600;
+}
+
+/* Neon Effects for Experience Section */
+#experience {
+    padding: 40px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+
+#experience .position-relative {
+    border-left: 2px solid var(--neon-blue);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#experience .bi-arrow-right {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+#experience p {
+    color: var(--neon-white);
+}
+
+#blogs {
+    padding: 40px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+
+#blogs .blog-card {
+    border: 2px solid var(--neon-pink);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+#blogs .blog-card:hover {
+    transform: translateY(-5px);
+}
+
+#blogs .blog-card h3 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+}
+
+#blogs .blog-card p {
+    color: var(--neon-white);
+}
+
+#blogs .pagination .page-link {
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+#blogs .pagination .page-link:hover {
+    color: var(--neon-black);
+    box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
