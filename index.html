@@ -32,7 +32,7 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/neon.css" rel="stylesheet">
-        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        
 </head>
 
 <body>
@@ -424,6 +424,7 @@
     <script src="js/main.js" defer></script>
     <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
+    <script src="js/smtp.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -446,10 +447,7 @@
 
         // Send email using SMTPJS
         Email.send({
-            Host: 'smtp-relay.brevo.com', // Replace with your SMTP server host
-            Port: 587,
-            Username: '6ec3e4001@smtp-brevo.com', // Replace with your email address
-            Password: 'D8SBfVy6CzZX3LvA', // Replace with your email password
+            SecureToken : "ff9db8f7-2158-4c11-a7b0-36a6426849a2",
             To: 'rohankumawat.pinkcity@gmail.com', // Replace with the recipient's email address
             From: email, // Replace with your email address
             Subject: subject,
