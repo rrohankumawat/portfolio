@@ -440,14 +440,18 @@
     <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
     <script>
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('success')) {
+                console.log('Success parameter found');
                 const successModal = new bootstrap.Modal(document.getElementById('successModal'));
                 successModal.show();
+            } else {
+                console.log('No success parameter found');
             }
-        }
-</script>
+        });
+    </script>
    
 </body>
 
