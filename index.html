@@ -354,12 +354,29 @@
                                     <label for="message">Message</label>
                                 </div>
                             </div>
-                            <input type="hidden" name="_next" value="https://rrohankumawat.github.io/portfolio/">
+                            <input type="hidden" name="_next" value="https://rrohankumawat.github.io/portfolio/?success=true">
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
+                    <div id="successModal" class="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Your message has been sent successfully. Thank you for reaching out!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </section>
 
                 <!-- Contact End -->
@@ -419,7 +436,15 @@
     <script src="js/main.js" defer></script>
     <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
-
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            }
+        }
+</script>
    
 </body>
 
