@@ -6,22 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotInput = document.getElementById("chatbot-input");
     const chatbotMessages = document.getElementById("chatbot-messages");
 
-    // Toggle Chatbot Visibility with Animation
     chatbotButton.addEventListener("click", () => {
         chatbotContainer.style.display = "flex";
         setTimeout(() => {
-            chatbotContainer.classList.add("open"); // Add open class for animation
-        }, 10); // Small delay to allow display change
+            chatbotContainer.classList.add("open"); 
+        }, 10); 
     });
 
     closeChatbot.addEventListener("click", () => {
-        chatbotContainer.classList.remove("open"); // Remove open class for animation
+        chatbotContainer.classList.remove("open"); 
         setTimeout(() => {
-            chatbotContainer.style.display = "none"; // Hide after animation
-        }, 300); // Match the duration of the transition
+            chatbotContainer.style.display = "none"; 
+        }, 300); 
     });
 
-    // Send Message
     sendMessageButton.addEventListener("click", sendMessage);
     chatbotInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
@@ -32,26 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
     function sendMessage() {
         const userMessage = chatbotInput.value.trim();
         if (userMessage) {
-            // Tokenize User Message
             const tokenizedMessage = tokenize(userMessage);
 
-            // Add User Message
             appendMessage(tokenizedMessage.join(" "), "user");
             chatbotInput.value = "";
 
             showTypingIndicator();
 
-            // Simulate Bot Response
             setTimeout(() => {
                 hideTypingIndicator();
                 const botMessage = getBotResponse(tokenizedMessage);
                 appendMessage(botMessage, "bot");
-            }, 1500); // Simulate bot typing delay
+            }, 1500); 
         }
     }
 
     function tokenize(text) {
-        // Tokenization
         return text.split(/\W+/).filter(token => token.length > 0);
     }
 
@@ -62,11 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="message-content">${message}</div>
         `;
         chatbotMessages.appendChild(messageElement);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight; 
     }
 
     function getBotResponse(tokens) {
-        // Simple Bot Logic
         const responses = {
             "hi": "Hello! I'm Rohan's Assistant. How can I help you?",
             "hello": "Hi there! What can I do for you?",
