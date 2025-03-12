@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotInput = document.getElementById("chatbot-input");
     const chatbotMessages = document.getElementById("chatbot-messages");
 
-        
     // Toggle Chatbot Visibility with Animation
     chatbotButton.addEventListener("click", () => {
         chatbotContainer.style.display = "flex";
@@ -33,43 +32,69 @@ document.addEventListener("DOMContentLoaded", function () {
     function sendMessage() {
         const userMessage = chatbotInput.value.trim();
         if (userMessage) {
+            // Tokenize User Message
+            const tokenizedMessage = tokenize(userMessage);
+
             // Add User Message
-            appendMessage(userMessage, "user");
+            appendMessage(tokenizedMessage.join(" "), "user");
             chatbotInput.value = "";
+
+            showTypingIndicator();
 
             // Simulate Bot Response
             setTimeout(() => {
-                const botMessage = getBotResponse(userMessage);
+                hideTypingIndicator();
+                const botMessage = getBotResponse(tokenizedMessage);
                 appendMessage(botMessage, "bot");
-            }, 500);
+            }, 1500); // Simulate bot typing delay
         }
+    }
+
+    function tokenize(text) {
+        // Tokenization
+        return text.split(/\W+/).filter(token => token.length > 0);
     }
 
     function appendMessage(message, sender) {
         const messageElement = document.createElement("div");
         messageElement.classList.add("message", sender);
-        const avatarSrc = sender === "user" ? "user-avatar.png" : "bot-avatar.png";
-    messageElement.innerHTML = `
-        <img src="${avatarSrc}" alt="${sender} Avatar" class="avatar">
-        <div class="message-content">${message}</div>
-    `;
-        messageElement.innerHTML = message;
+        messageElement.innerHTML = `            
+            <div class="message-content">${message}</div>
+        `;
         chatbotMessages.appendChild(messageElement);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll
     }
 
-    function getBotResponse(userMessage) {
+    function getBotResponse(tokens) {
         // Simple Bot Logic
         const responses = {
-            "hi": "Hello! How can I help you?",
+            "hi": "Hello! I'm Rohan's Assistant. How can I help you?",
             "hello": "Hi there! What can I do for you?",
-            "how are you": "I'm just a bot, but I'm doing great! How about you?",
+            "how": "I'm just a bot, but I'm doing great! How about you?",
             "bye": "Goodbye! Have a great day!",
-            "default": "I'm sorry, I didn't understand that. Please <a href='#contact' style='color: #007bff; text-decoration: underline;'>contact me via the contact form</a> for further assistance."
-        };
+            "help": "Sure! How can I assist you today?",
+            "thanks": "You're welcome! Anything else I can help with?",
+            "time": `The current time is ${new Date().toLocaleTimeString()}.`,
+            "date": `Today's date is ${new Date().toLocaleDateString()}.`,
+            "weather": "I'm not a weather bot, but you can check out your local weather report!",
+            "name": "I am your friendly chatbot here to assist you!",
+            "project": "Juggling multiple projects? Let's talk about managing them effectively.",
+            "rate": "Let's discuss about it!",
+            "price": "Let's discuss about it!",
+            "tech" : "I do backend and frontend development both.",
+            "requirement" :"Let's discuss your requirement! Please <a href='#contact' style='color: #007bff; text-decoration: underline;'>contact me via the contact form</a> for further assistance.",
+            "project" : "Let's discuss your requirement! Please <a href='#contact' style='color: #007bff; text-decoration: underline;'>contact me via the contact form</a> for further assistance.",
+            "freelance" :"We provide the quality and efficiency! Trust me.",
+            "thank" : "You're welcome! Anything else I can help with?",
+            "contact" : "Feel free to contact me, drop your queries <a href='#contact' style='color: #007bff; text-decoration: underline;'> and via the contact form</a> for further assistance.",
 
-        const lowerCaseMessage = userMessage.toLowerCase();
-        return responses[lowerCaseMessage] || responses["default"];
+            "default": "I'm sorry, I didn't understand that. Please <a href='#contact' style='color: #007bff; text-decoration: underline;'>contact me via the contact form</a> for further assistance.",
+        };
+        
+
+        const lowerCaseTokens = tokens.map(token => token.toLowerCase());
+        const responseKey = lowerCaseTokens.find(token => responses[token]) || "default";
+        return responses[responseKey];
     }
 
     function showTypingIndicator() {
@@ -86,23 +111,4 @@ document.addEventListener("DOMContentLoaded", function () {
             typingIndicator.remove();
         }
     }
-    
-    // Add Typing Indicator
-    function sendMessage() {
-        const userMessage = chatbotInput.value.trim();
-        if (userMessage) {
-            appendMessage(userMessage, "user");
-            chatbotInput.value = "";
-            showTypingIndicator();
-    
-            setTimeout(() => {
-                hideTypingIndicator();
-                const botMessage = getBotResponse(userMessage);
-                appendMessage(botMessage, "bot");
-            }, 1500); // Simulate bot typing delay
-        }
-    }
-    
 });
-
-
