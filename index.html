@@ -418,53 +418,8 @@
     <script src="js/main.js" defer></script>
     <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
-    <script src="js/smtp.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    const contactForm = document.getElementById('contact_form');
-
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the form from submitting the default way
-
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        // Validate form fields
-        if (!name || !email || !subject || !message) {
-            alert('Please fill out all fields.');
-            return;
-        }
-
-        // Send email using SMTPJS
-        Email.send({
-            SecureToken : "ff9db8f7-2158-4c11-a7b0-36a6426849a2",
-            To: 'rohankumawat.pinkcity@gmail.com', // Replace with the recipient's email address
-            From: email, // Replace with your email address
-            Subject: subject,
-            Body: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
-        }).then(
-            (response) => {
-                if (response === 'OK') {
-                    alert('Your message has been sent successfully!');
-                    contactForm.reset(); // Reset the form
-                } else {
-                    alert('An error occurred while sending the message. Please try again.');
-                }
-            }
-        ).catch(
-            (error) => {
-                console.error('Error:', error);
-                alert('An error occurred while sending the message. Please try again.');
-            }
-        );
-    });
-});
-    </script>
-
+   
 </body>
 
 </html>
