@@ -33,6 +33,7 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/neon.css" rel="stylesheet">
+        <link href="css/chatbot.css" rel="stylesheet">
         
 </head>
 
@@ -397,9 +398,26 @@
         </div>
     </div>
 
+    <!-- Floating Chatbot Button -->
+    <div id="chatbot-button" class="chatbot-button">
+        <i class="fas fa-comment"></i>
+    </div>
 
-    <!-- Back to Top -->
+    <!-- Chatbot Container -->
     <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Chat with Rohan</span>
+            <button id="close-chatbot" class="close-chatbot">&times;</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Type a message..." />
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+    <!-- Back to Top -->
+    
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -418,6 +436,7 @@
 
     <!-- Template Javascript -->
     <script src="js/blog.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="store/store.js" defer type="module"></script>
     <script src="js/content.js" type="module"></script>
