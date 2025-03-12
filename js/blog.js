@@ -25,6 +25,12 @@ const blogs = [
         description: "Get started with StackOverflowException in ASP.NET Core and how to detect it? 😱 😭 😰 ",
         link: "https://www.linkedin.com/feed/update/urn:li:activity:7283730346968334336/"
     }
+    ,
+    {
+        title: "Mastering jQuery: A Timeless Skill for Modern Web Development ",
+        description: "Want to enhance your web development skills?🎨🌐🖥️🎯🔥 How can mastering jQuery help you create dynamic, interactive websites with ease, even in the age of modern frameworks?✨🚀💻💡👨‍💻👩‍💻",
+        link: "https://www.linkedin.com/feed/update/urn:li:activity:7305193574575259649/"
+    }
 ];
 // Pagination settings
 const blogsPerPage = 4; // Number of blogs to display per page
