@@ -7,8 +7,9 @@ export const LeftPaneSkills = [
 
 export const RightPaneSkill =[
     {skillName : 'SQL / MongoDb', skillVal : '90', color:'danger'},
+    {skillName : 'Angular', skillVal : '95', color:'info'},
     {skillName : 'HTML / CSS / JavaScript / React', skillVal : '95', color:'primary'},
-    {skillName : 'Microservices', skillVal : '85', color:'info'},
+    {skillName : 'Microservices', skillVal : '85', color:'info'}
     
 ]
 
